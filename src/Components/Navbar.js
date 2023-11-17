@@ -7,7 +7,7 @@ import {NavLink} from 'react-router-dom'
 export default function NavbarComponent(){
     return(
         <Navbar bg="dark" data-bs-theme="dark">
-            <Container>
+            <Container fluid='sm'>
                 <Navbar.Brand as={NavLink} to="/">Social</Navbar.Brand>
                     <Nav className="me-auto">
                         <Nav.Link as={NavLink} to="/">Home</Nav.Link>

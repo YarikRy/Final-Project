@@ -29,7 +29,7 @@ export default function UpdateForm(props){
                         <Form.Label>Content:</Form.Label>
                         <Form.Control type="content" placeholder='What do you want to post?' onChange={(e) => props.setUpdatedContent(e.target.value)} value={props.updatedContent}/>
                     </Form.Group>
-                    <Button variant='success mt-3' type='submit' onClick={(e) => props.updateUser(e, props.user)}>Update</Button>
+                    <Button id={props.user.id} variant='success mt-3' type='submit' onClick={(e) => props.updateUser(e, props.user)}>Update</Button>
                 </Form>
             </Modal.Body>
             <Modal.Footer>

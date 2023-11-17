@@ -241,12 +241,28 @@
       "date": "06/19/2021"
     },
     {
-      "first_name": "Jake",
-      "last_name": "PHONIE",
+      "first_name": "",
+      "last_name": "",
       "avatar": "https://i.pinimg.com/originals/f9/7a/a3/f97aa30914bb4a8f08f2a1f837d7e4fa.jpg",
-      "content": "yeyes",
+      "content": "",
       "date": "Thu Nov 16 2023 16:40:15 GMT-0600 (Central Standard Time)",
       "id": 31
+    },
+    {
+      "first_name": "weweadsad awda",
+      "last_name": "",
+      "avatar": "https://www.w3schools.com/colors/img_colormap.gif",
+      "content": "I WAS HERER",
+      "date": "Thu Nov 16 2023 20:57:50 GMT-0600 (Central Standard Time)",
+      "id": 32
+    },
+    {
+      "first_name": "gccytctfctfc",
+      "last_name": "rettdrgegrddr",
+      "avatar": "",
+      "content": "gdrgdrgdrgdrgdrgrd",
+      "date": "Thu Nov 16 2023 21:21:59 GMT-0600 (Central Standard Time)",
+      "id": 33
     }
   ],
   "friends": []

@@ -46,6 +46,7 @@ function App() {
   const updateUser = (e, userObject) => {
 
     e.preventDefault()
+
     let updatedUserObject = {
       ...userObject,
       first_name: updatedFirstName,
@@ -53,13 +54,15 @@ function App() {
       content: updatedContent,
     }
 
+    console.log(userObject.id)
+
     fetch(`${USERS_ENDPOINT}/${userObject.id}`, {
       method: 'PUT',
-      body: JSON.stringify(updatedUserObject),
-      headers: {'Content-Type': 'application/json'}
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(updatedUserObject)
     }).then(() => getUsers())
 
-    setUpdatedFirstName("")
+    setUpdatedFirstName('')
     setUpdatedLastName('')
     setUpdatedContent('')
   }
