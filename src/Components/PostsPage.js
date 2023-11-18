@@ -1,4 +1,6 @@
+import FriendPosts from "./FriendPosts"
 import NewPostForm from "./PostForm"
+import NotFriendPosts from "./NotFriendPosts"
 
 export default function PostsPage(props){
     return(
@@ -16,6 +18,8 @@ export default function PostsPage(props){
             setNewUserAvatar={props.setNewUserAvatar}
             postNewUser={props.postNewUser}
             />
+            <FriendPosts users={props.users}/>
+            <NotFriendPosts users={props.users}/>
         </div>
     )
 }

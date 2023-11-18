@@ -32,6 +32,8 @@ export default function HomePage(props){
             updatedFirstName={props.updatedFirstName}
             updatedLastName={props.updatedLastName}
             updatedContent={props.updatedContent}
+            deleteUser={props.deleteUser}
+            updateFriend={props.updateFriend}
             />
         </div>
         </>

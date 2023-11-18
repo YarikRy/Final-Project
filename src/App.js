@@ -9,8 +9,12 @@ import { Navbar, Container, Nav } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 
 import NavbarComponent from './Components/Navbar';
+import Footer from './Components/Footer';
+import AllUsers from './Components/AllUsers';
 
 function App() {
+
+  //STATE FOR USERS AND FORMS
   const USERS_ENDPOINT = 'http://localhost:3005/users'
   const [users, setUsers] = useState([])
 
@@ -67,6 +71,24 @@ function App() {
     setUpdatedContent('')
   }
 
+  const updateFriend = (e, userObject) => {
+
+    e.preventDefault()
+
+    let updatedUserObject = {
+      ...userObject,
+      friend: !userObject.friend,
+    }
+
+    console.log(userObject.id)
+
+    fetch(`${USERS_ENDPOINT}/${userObject.id}`, {
+      method: 'PUT',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(updatedUserObject)
+    }).then(() => getUsers())
+  }
+
   const postNewUser = (e) => {
     e.preventDefault()
     fetch(USERS_ENDPOINT, {
@@ -78,7 +100,8 @@ function App() {
           last_name: newLastName,
           avatar: newUserAvatar,
           content: newContent,
-          date: Date()
+          date: Date(),
+          friend: false
         }
       )
     }).then(() => getUsers())
@@ -115,8 +138,13 @@ function App() {
         updatedFirstName={updatedFirstName}
         updatedLastName={updatedLastName}
         updatedContent={updatedContent}
+        deleteUser={deleteUser}
+        updateFriend={updateFriend}
         />}/>
-        <Route path="/friends" element={<FriendsPage/>}/>
+        <Route path="/friends" element={<FriendsPage 
+        users={users}
+        updateFriend={updateFriend}
+        />}/>
         <Route path="/posts" element={<PostsPage 
         users={users} 
         setUsers={setUsers} 
@@ -130,8 +158,13 @@ function App() {
         setNewUserAvatar={setNewUserAvatar}
         postNewUser={postNewUser}
         />}/>
+        <Route path='/users' element={<AllUsers 
+        users={users}
+        updateFriend={updateFriend}
+        />}/>
         <Route path="*" element={<h1>NOT FOUND</h1>}/>
       </Routes>
+      <Footer/>
     </div>
     </BrowserRouter>
   );

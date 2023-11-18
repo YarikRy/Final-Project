@@ -12,7 +12,8 @@ export default function NavbarComponent(){
                     <Nav className="me-auto">
                         <Nav.Link as={NavLink} to="/">Home</Nav.Link>
                         <Nav.Link as={NavLink} to="/friends">Friends</Nav.Link>
-                        <Nav.Link as={NavLink} to="/posts">Posts</Nav.Link>
+                        <Nav.Link as={NavLink} to="/posts">Posts</Nav.Link>\
+                        <Nav.Link as={NavLink} to="/users">Users</Nav.Link>
                     </Nav>
             </Container>
       </Navbar>

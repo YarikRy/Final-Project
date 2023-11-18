@@ -14,6 +14,18 @@
   border-radius: 50px;
 }
 
+.boxBig {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  border: 5px solid rgb(116, 125, 138);
+  border-radius: 50px;
+}
+
 .backLight{
   background-color: rgb(110, 124, 143);
   color: white;
@@ -25,6 +37,13 @@
   margin-left: 5px;
   padding: 5px;
   border-bottom: 1px solid black;
+}
+
+.leftUsers{
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  padding: 5px;
 }
 
 .smallBtn{
@@ -46,4 +65,15 @@
   border: 1px solid black;
   border-radius: 50%;
   margin-right: 10px;
+}
+
+.footer {
+  width: 100%;
+  height: 10rem;
+  margin-top: 3rem;
+  background-color: rgb(37, 39, 42);
+  color: white;
+  padding: 3rem;
+  position: sticky;
+  bottom: 0;
 }

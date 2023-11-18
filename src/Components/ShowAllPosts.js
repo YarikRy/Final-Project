@@ -44,33 +44,37 @@ export default function ShowAllPosts(props) {
                                         <div className="left">
                                             <img src={user.avatar} className="smallImg"></img>
                                             <h3>{`${user.first_name} ${user.last_name}`}</h3>
-                                        </div>
-                                        <div>
-                                            {/* <h3>{`${user.first_name} ${user.last_name}`}</h3> */}
+                                            {user.friend ? (
+                                                <button className="btn btn-danger btn-sm ms-4" onClick={(e) => props.updateFriend(e, user)}>Remove Friend</button>
+                                            ) : (
+                                                <button className="btn btn-success btn-sm ms-4" onClick={(e) => props.updateFriend(e, user)}>Add Friend</button>
+                                            )}
                                         </div>
                                         <div className="p-2 text-start">
                                             <p>{user.content}</p>
                                             <p className="muted">{user.date}</p>
                                         </div>
-                                        <Button className="smallBtn" size="sm" onClick={() => props.setShow(true)}>Update</Button>
                                         <div>
-                                        <UpdateForm 
-                                        updateUser={props.updateUser} 
-                                        user={user} 
-                                        key={props.index} 
-                                        show={props.show}  
-                                        onHide={() => props.setShow(false)}
-                                        setUpdatedFirstName={props.setUpdatedFirstName}
-                                        setUpdatedLastName={props.setUpdatedLastName}
-                                        setUpdatedContent={props.setUpdatedContent}
-                                        updatedFirstName={props.updatedFirstName}
-                                        updatedLastName={props.updatedLastName}
-                                        updatedContent={props.updatedContent}
-                                        />
+                                        <Button className="smallBtn" size="sm" onClick={() => props.setShow(true)}>Update</Button>
+                                        <Button className="smallBtn btn-danger" size="sm" onClick={() => props.deleteUser(user.id)}>Delete</Button>
                                         </div>
                                     </div>
                             )
                         })}
+                        <UpdateForm 
+                            updateUser={props.updateUser} 
+                            users={props.users} 
+                            key={props.index} 
+                            setShow={props.setShow}
+                            show={props.show}  
+                            onHide={() => props.setShow(false)}
+                            setUpdatedFirstName={props.setUpdatedFirstName}
+                            setUpdatedLastName={props.setUpdatedLastName}
+                            setUpdatedContent={props.setUpdatedContent}
+                            updatedFirstName={props.updatedFirstName}
+                            updatedLastName={props.updatedLastName}
+                            updatedContent={props.updatedContent}
+                        />
                     </Col>
                 </Row>
             </Container>
