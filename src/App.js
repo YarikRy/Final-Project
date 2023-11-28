@@ -11,6 +11,9 @@ import { useState, useEffect } from 'react';
 import NavbarComponent from './Components/Navbar';
 import Footer from './Components/Footer';
 import AllUsers from './Components/AllUsers';
+import LogInForm from './Components/LogInForm';
+import Profile from './Components/Profile';
+import SignUp from './Components/SignUp';
 
 function App() {
 
@@ -28,6 +31,19 @@ function App() {
   const [updatedFirstName, setUpdatedFirstName] = useState('')
   const [updatedLastName, setUpdatedLastName] = useState('')
   const [updatedContent, setUpdatedContent] = useState('')
+
+  // STATE FOR USER LOGIN INFO
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  const [account, setAccount] = useState([{}])
+
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+
+
+
+
 
 
   const getUsers = async () => {
@@ -55,7 +71,9 @@ function App() {
       ...userObject,
       first_name: updatedFirstName,
       last_name: updatedLastName,
-      content: updatedContent,
+      posts: [{
+        content: updatedContent,
+      }]
     }
 
     console.log(userObject.id)
@@ -99,8 +117,10 @@ function App() {
           first_name: newFirstName,
           last_name: newLastName,
           avatar: newUserAvatar,
-          content: newContent,
-          date: Date(),
+          posts: [{
+            content: newContent,
+            date: Date(),
+          }],
           friend: false
         }
       )
@@ -112,11 +132,13 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
     <div className="App">
-      <NavbarComponent/>
+      <NavbarComponent setIsLoggedIn={setIsLoggedIn}/>
 
       <Routes>
+        {isLoggedIn ? 
+        <>
+
         <Route path="/" element={<HomePage 
         users={users} 
         setUsers={setUsers} 
@@ -141,10 +163,14 @@ function App() {
         deleteUser={deleteUser}
         updateFriend={updateFriend}
         />}/>
+
+
         <Route path="/friends" element={<FriendsPage 
         users={users}
         updateFriend={updateFriend}
         />}/>
+
+
         <Route path="/posts" element={<PostsPage 
         users={users} 
         setUsers={setUsers} 
@@ -158,15 +184,53 @@ function App() {
         setNewUserAvatar={setNewUserAvatar}
         postNewUser={postNewUser}
         />}/>
+
+
         <Route path='/users' element={<AllUsers 
         users={users}
         updateFriend={updateFriend}
         />}/>
-        <Route path="*" element={<h1>NOT FOUND</h1>}/>
-      </Routes>
+
+        <Route path='/profile' element={<Profile 
+        account={account}
+        />}/>
+
+
+        <Route path="*" element={<h1>NOT FOUND</h1>}/> 
+        
+        </> 
+
+        : 
+        
+        <>
+        <Route path='/' element={<LogInForm
+        isLoggedIn={isLoggedIn}
+        setIsLoggedIn={setIsLoggedIn}
+        username={username}
+        password={password}
+        setUsername={setUsername}
+        setPassword={setPassword}
+        users={users}
+        setAccount={setAccount}
+        account={account}
+        />}/>
+        
+        <Route path='/sign-up' element={<SignUp 
+        username={username}
+        password={password}
+        setUsername={setUsername}
+        setPassword={setPassword}
+        newFirstName={newFirstName} 
+        newLastName={newLastName}
+        setNewFirstName={setNewFirstName}
+        setNewLastName={setNewLastName}
+        />} />
+        </>
+        }
+        </Routes>
+        
       <Footer/>
     </div>
-    </BrowserRouter>
   );
 }
 

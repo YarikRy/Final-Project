@@ -51,8 +51,8 @@ export default function ShowAllPosts(props) {
                                             )}
                                         </div>
                                         <div className="p-2 text-start">
-                                            <p>{user.content}</p>
-                                            <p className="muted">{user.date}</p>
+                                            <p>{user.posts[0].content}</p>
+                                            <p className="muted">{user.posts[0].date}</p>
                                         </div>
                                         <div>
                                         <Button className="smallBtn" size="sm" onClick={() => props.setShow(true)}>Update</Button>
