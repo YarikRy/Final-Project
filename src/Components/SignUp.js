@@ -22,7 +22,10 @@ const SignUp = (props) => {
                     <label className='block text-gray-700 text-sm font-bold mb-2'>Password: </label>
                     <input className="form-control" type='text' placeholder='Password...' onChange={(e) => props.setPassword(e.target.value)} value={props.password}/>
 
-                    <button className='border rounded py-2 px-2 mt-5 bg-slate-400 font-bold'>Sign Up</button>
+                    <label className='block text-gray-700 text-sm font-bold mb-2'>User Avatar: </label>
+                    <input className="form-control" type='text' placeholder='Put the link to the avatar here' onChange={(e) => props.setNewUserAvatar(e.target.value)} value={props.newUserAvatar}/>
+
+                    <button className='border rounded py-2 px-2 mt-5 bg-slate-400 font-bold' onClick={(e) => props.postNewUser(e)}>Sign Up</button>
                 </div>
                 <NavLink to='/'>Already have an account? Log In!</NavLink>
             </div>

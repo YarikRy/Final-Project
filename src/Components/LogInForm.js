@@ -26,6 +26,10 @@ const LogInForm = (props) => {
                     <label className='block text-gray-700 text-sm font-bold mb-2'>Password: </label>
                     <input className="form-control" type='text' placeholder='Password...' onChange={(e) => props.setPassword(e.target.value)} value={props.password}/>
 
+                    <p>Test Account</p>
+                    <p>Username: Test</p>
+                    <p>Password: Test</p>
+
                     <button className='border rounded py-2 px-2 mt-5 bg-slate-400 font-bold' onClick={(e) => checkIfUserExists(e, props.username, props.password)} >Log In</button>
                 </div>
                 <NavLink to='/sign-up'>Are you new here? Sign Up!</NavLink>

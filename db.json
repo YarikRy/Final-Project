@@ -29,6 +29,30 @@
       ],
       "friend": true,
       "id": 33
+    },
+    {
+      "first_name": "Jack",
+      "last_name": "Smith",
+      "username": "JSmith",
+      "password": "JSmith1",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_1NcEWu4z1LQEhma4SD5nj29LA6PKV8BVW6i1KzESaw&s",
+      "posts": [
+        {}
+      ],
+      "friend": true,
+      "id": 34
+    },
+    {
+      "first_name": "Test",
+      "last_name": "Test",
+      "username": "Test",
+      "password": "Test",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-URN8cpXrZVvBOOoIO7jDTdspuCSYFttTEGXukLI6TA&s",
+      "posts": [
+        {}
+      ],
+      "friend": false,
+      "id": 35
     }
   ]
 }

@@ -116,10 +116,11 @@ function App() {
         {
           first_name: newFirstName,
           last_name: newLastName,
+          username: username,
+          password: password,
           avatar: newUserAvatar,
           posts: [{
-            content: newContent,
-            date: Date(),
+            
           }],
           friend: false
         }
@@ -127,6 +128,8 @@ function App() {
     }).then(() => getUsers())
     setNewFirstName('')
     setNewLastName('')
+    setPassword('')
+    setUsername('')
     setNewContent('')
     setNewUserAvatar('')
   }
@@ -162,6 +165,7 @@ function App() {
         updatedContent={updatedContent}
         deleteUser={deleteUser}
         updateFriend={updateFriend}
+        account={account}
         />}/>
 
 
@@ -224,6 +228,9 @@ function App() {
         newLastName={newLastName}
         setNewFirstName={setNewFirstName}
         setNewLastName={setNewLastName}
+        setNewUserAvatar={setNewUserAvatar}
+        newUserAvatar={newUserAvatar}
+        postNewUser={postNewUser}
         />} />
         </>
         }

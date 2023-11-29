@@ -34,6 +34,7 @@ export default function HomePage(props){
             updatedContent={props.updatedContent}
             deleteUser={props.deleteUser}
             updateFriend={props.updateFriend}
+            account={props.account}
             />
         </div>
         </>

@@ -55,8 +55,14 @@ export default function ShowAllPosts(props) {
                                             <p className="muted">{user.posts[0].date}</p>
                                         </div>
                                         <div>
-                                        <Button className="smallBtn" size="sm" onClick={() => props.setShow(true)}>Update</Button>
-                                        <Button className="smallBtn btn-danger" size="sm" onClick={() => props.deleteUser(user.id)}>Delete</Button>
+                                            {props.account[0].id === user.id ? 
+                                                <>
+                                                <Button className="smallBtn" size="sm" onClick={() => props.setShow(true)}>Update</Button>
+                                                <Button className="smallBtn btn-danger" size="sm" onClick={() => props.deleteUser(user.id)}>Delete</Button>
+                                                </>
+                                                :
+                                                null
+                                            }
                                         </div>
                                     </div>
                             )
@@ -74,6 +80,7 @@ export default function ShowAllPosts(props) {
                             updatedFirstName={props.updatedFirstName}
                             updatedLastName={props.updatedLastName}
                             updatedContent={props.updatedContent}
+                            account={props.account}
                         />
                     </Col>
                 </Row>
