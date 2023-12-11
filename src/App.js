@@ -9,7 +9,6 @@ import { Navbar, Container, Nav } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 
 import NavbarComponent from './Components/Navbar';
-import Footer from './Components/Footer';
 import AllUsers from './Components/AllUsers';
 import LogInForm from './Components/LogInForm';
 import Profile from './Components/Profile';
@@ -19,6 +18,8 @@ function App() {
 
   //STATE FOR USERS AND FORMS
   const USERS_ENDPOINT = 'http://localhost:3005/users'
+
+  
   const [users, setUsers] = useState([])
 
   const [show, setShow] = useState(false)
@@ -235,8 +236,6 @@ function App() {
         </>
         }
         </Routes>
-        
-      <Footer/>
     </div>
   );
 }
